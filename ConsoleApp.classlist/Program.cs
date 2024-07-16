@@ -1,14 +1,10 @@
 ﻿
-using System.Collections.Generic;
-
-Console.WriteLine("********** - Class List - **********");
-
-string name ="", surname;
 List<string> classroom = new List<string>();
+string name = ""; 
+string surname;
 
-while(name is not "done")
+while (name != "done")
 {
-    
     Console.WriteLine();
     Console.WriteLine("Add Learner:");
     Console.WriteLine();
@@ -16,40 +12,26 @@ while(name is not "done")
     Console.Write("Name: ");
     name = Console.ReadLine();
 
-    if(name == "done")
+    if (name == "done")
     {
         break;
     }
-    Console.Write("Surname: ");
 
+    Console.Write("Surname: ");
     surname = Console.ReadLine();
 
-    AddLearner(name , surname);
-
-    if(name == "Michael")
+    if (name == "Michael")
     {
         name = "Money Mike";
     }
 
-    classroom.Add(AddLearner(name,surname));
-
+    classroom.Add($"{name} {surname}");
 }
 
-ClassList();
 
-
-void ClassList()
+Console.Clear();
+Console.WriteLine("***** - Class List - *****");
+foreach (string learner in classroom)
 {
-    foreach(string learner in classroom)
-    {
-        Console.Clear();
-        Console.Write("***** - Class List - *****");
-        Console.WriteLine();
-        Console.WriteLine(learner);
-    }
-}
-
-string AddLearner(string name, string surname)
-{
-    return name + " " + surname;
+    Console.WriteLine(learner);
 }
